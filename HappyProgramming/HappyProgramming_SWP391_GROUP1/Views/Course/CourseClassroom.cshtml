@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "_Layout1";
+    List<Post> listPostOfCourse = (List<Post>)ViewBag.listPostOfCourse;
+
+
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Class</title>
+
+</head>
+<body>
+    @if (User.IsInRole("Mentee") || User.IsInRole("Mentor"))
+    {
+        <a href="@Url.Action("CreatePost", "Post" , new {CourseId = @ViewBag.CourseId})">
+
+            <button class="btn btn-primary"> Create Post </button>
+        </a>
+
+        <a onclick="window.location.href='../Chat/Chat'">
+            <button class="btn btn-primary"> Chat </button>
+        </a>
+        <div class="row">
+            @foreach (var post in listPostOfCourse)
+            {
+                <div class="col-md-4 col-xs-6 border-primary mb-3">
+                    <div class="card mb-3" style="max-width: 600px;">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <p class="card-text"><b>Title </b>@post.Title </p>
+                                    <p class="card-text"><b>Content:  </b>@post.Content </p>
+
+                                    <p class="card-text">
+                                        <a class="btn btn-outline-primary float-right" href="@Url.Action("ViewPost", "Post", new {postId = @post.Id })">
+                                            <i class="bi bi-eye-fill"></i> See detail
+                                        </a>
+                                        @if (User.IsInRole("Mentor"))
+                                        {
+                                            <a class="btn btn-outline-primary float-right" href="@Url.Action("DeletePost", "Post", new {postId = @post.Id })">
+                                                <i class="bi bi-eye-fill"></i> Delete
+                                            </a>
+
+                                        }
+
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+    }
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

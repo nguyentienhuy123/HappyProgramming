@@ -1,0 +1,123 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@*<form method="post" action="@Url.Action("SendRequest2", "Request", new { receiveId = @ViewBag.ReceiveId, courseId = @ViewBag.CourseId })">
+    <label for="privacy">Văn bản Privacy:</label>
+    <p id="privacy" name="privacy">aaaaa</p>
+    <label>
+        <input type="checkbox" id="agree" name="agree">
+        Tôi đồng ý với điều khoản của bạn.
+    </label>
+
+    <button type="submit" id="submit-btn" disabled>Submit</button>
+</form>
+
+<script>
+    const agreeCheckbox = document.querySelector('#agree');
+    const submitButton = document.querySelector('#submit-btn');
+
+    agreeCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    });
+</script>*@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang Privacy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<form method="post" action="@Url.Action("SendRequest2", "Request", new { receiveId = @ViewBag.ReceiveId, courseId = @ViewBag.CourseId })">
+
+    <div class="container">
+        <h1>Chính sách bảo mật</h1>
+        <p>
+            In today's digital age, protecting our documents' privacy has become more important than ever. With so much information being shared online, it's essential to learn how to safeguard your sensitive documents from prying eyes.
+
+            Luckily, there are many online courses available that can help you learn about document privacy for the web. These courses cover topics such as encryption, secure file transfer protocols, and data protection laws.
+
+            One popular course is offered by Udemy, titled "Document Privacy for Web Professionals." This course provides an in-depth understanding of document security, including techniques for securing documents during transmission and storage, as well as tips for maintaining confidentiality and ensuring compliance with privacy regulations.
+
+            Another great option is Coursera's "Data Privacy Fundamentals" course, which covers the basics of data privacy and security, including key concepts such as encryption, authentication, and access control.
+
+            And if you're looking for a more comprehensive program, the International Association of Privacy Professionals (IAPP) offers a range of certification programs for privacy professionals, including the Certified Information Privacy Professional (CIPP) and the Certified Information Privacy Manager (CIPM).
+
+            Whatever your level of expertise or interest in document privacy may be, there are plenty of online courses and resources available to help you stay informed and keep your sensitive documents safe.
+        </p>
+        <label>
+            <input type="checkbox" name="agree" value="yes" id="agree">
+            Tôi đồng ý với các điều khoản và chính sách bảo mật của trang web.
+        </label>
+
+        <button id="submit-btn" disabled type="submit">Đồng ý</button>
+    </div>
+    </form>
+</body>
+</html>
+<script>
+    const agreeCheckbox = document.querySelector('#agree');
+    const submitButton = document.querySelector('#submit-btn');
+
+    agreeCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    });
+</script>

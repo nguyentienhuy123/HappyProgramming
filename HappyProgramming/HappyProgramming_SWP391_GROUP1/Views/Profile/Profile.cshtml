@@ -1,0 +1,318 @@
+﻿@using HappyProgramming_SWP391_GROUP1.Models;
+@using System.Security.Claims;
+@{
+    Layout = "_Layout1";
+
+}
+@{
+    ClaimsPrincipal claimsPrincipal = User;
+}
+
+
+<div class="content">
+
+    <!-- Start Content-->
+    <div class="container-fluid">
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="@Url.Action("UploadImage", "Profile")" method="post" enctype="multipart/form-data">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Change Image</h4>
+                            <button type="button" class="btn-close close-btn3" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body d-flex justify-content-center">
+                            <img src="~/@claimsPrincipal.FindFirstValue(ClaimTypes.Spn)" id="blah" style="display:inline-block"
+                                 class="flex-shrink-0 rounded-circle avatar-xl img-thumbnail float-start me-3" alt="profile-image">
+
+                            <input type="file" class="form-control" onchange="readURL(this);" name="Image" />
+
+                            <script>
+                                function readURL(input) {
+                                    if (input.files && input.files[0]) {
+                                        var reader = new FileReader();
+
+                                        reader.onload = function (e) {
+                                            $('#blah')
+                                                .attr('src', e.target.result);
+                                        };
+                                        reader.readAsDataURL(input.files[0]);
+                                    }
+                                }
+                            </script>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger close-btn3" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary ">Save change</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <form action="@Url.Action("Update", "Profile")" method="post">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="bg-picture card-body">
+                        <div class="d-flex align-items-top">
+                                @{
+                                    var profile = (Profile)ViewBag.Data;
+                                   
+                                    string Description = profile.Description == null ? "(Description)" : profile.Description;
+                                    string address = profile.Address == null ? "(Address)" : profile.Address;
+                                }
+                                <img src="~/@claimsPrincipal.FindFirstValue(ClaimTypes.Spn)"
+                                     class="flex-shrink-0 rounded-circle avatar-xl img-thumbnail float-start me-3 img" alt="profile-image">
+                                <script>
+                                    $('.img').click(function () {
+                                        $('.modal').removeClass('hide');
+                                        $('.modal').addClass('show');
+                                    })
+                                    $('.close-btn3').click(function () {
+                                        $('.modal').removeClass('show');
+                                        $('.modal').addClass('hide');
+
+                                    })
+                                </script>
+                            <div class="flex-grow-1 overflow-hidden">
+                                    <h4 class="m-0">@claimsPrincipal.FindFirstValue(ClaimTypes.Name)</h4>
+                                    @if (ViewBag.Type == "edit" || ViewBag.Type == "edit1")
+                                    {
+                                        <div class="row g-3 align-items-center" style="margin-bottom: 2%">
+                                            <div class="col-auto">
+                                            </div>
+                                            <div class="col-auto"></div>
+                                            <div class="col-auto"></div>
+                                            <div class="col-auto"></div>
+                                        </div>
+
+                                        
+
+                                    }
+                                    @if (ViewBag.Type != "edit" && ViewBag.Type != "edit1")
+                                    {
+                                       
+                                        
+                                    }
+
+
+                              
+
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ meta -->
+
+
+                <div class="card">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+
+                            <h4 class="header-title mt-0 mb-3"><i class="mdi mdi-notification-clear-all me-1"></i> About Me </h4>
+
+                            <ul class="list-group mb-0 user-list">
+                                <li class="list-group-item">
+                                        <div class="user-list-item">
+                                        <div class="user float-start me-3">
+                                            <i class="mdi mdi-circle text-primary"></i>
+                                        </div>
+                                        <div class="user-desc overflow-hidden">
+                                            <h5 class="name mt-0 mb-1">Name</h5>
+                                                @if (ViewBag.Type != "edit")
+                                                {
+                                                    <span class="desc text-muted font-12 text-truncate d-block">@profile.Name</span>
+                                                }
+                                                @if (ViewBag.Type == "edit")
+                                                {
+                                                    <div class="row g-3 align-items-center">
+                                                        <div class="col-auto">
+                                                            <input type="text" class="form-control" placeholder="Enter Your Name" name="Name"
+                                                                   pattern="^[A-Z]{1}[a-z]{1, } ([ ]{1}[A-Z]{1}[a-z]{1, })+$"
+                                                                   title="Fill in your correct name"
+                                                                   required>
+                                                        </div>
+                                                        <div class="col-auto"></div>
+                                                        <div class="col-auto"></div>
+                                                    </div>
+
+                                                }
+
+                                            </div>
+
+                                        </div>
+
+                                </li>
+
+                                <li class="list-group-item">
+                                        <div class="user-list-item">
+                                        <div class="user float-start me-3">
+                                            <i class="mdi mdi-circle text-success"></i>
+                                        </div>
+                                        <div class="user-desc overflow-hidden">
+                                            <h5 class="name mt-0 mb-1">Date of birth</h5>
+                                                @if (ViewBag.Type != "edit")
+                                                {
+                                                    <span class="desc text-muted font-12 text-truncate d-block">@DateTime.Parse(profile.Dob.ToString()).ToString("dddd, dd MMMM yyyy")  </span>
+                                                }
+                                                @if (ViewBag.Type == "edit")
+                                                {
+                                                    <div class="row g-3 align-items-center">
+                                                        <div class="col-auto">
+                                                            <input type="date" class="form-control" placeholder="" name="DoB" required>
+                                                        </div>
+                                                        <div class="col-auto"></div>
+                                                        <div class="col-auto"></div>
+                                                    </div>
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li class="list-group-item">
+                                        <div class="user-list-item">
+                                        <div class="user float-start me-3">
+                                            <i class="mdi mdi-circle text-pink"></i>
+                                        </div>
+                                        <div class="user-desc overflow-hidden">
+                                            <h5 class="name mt-0 mb-1">Role</h5>
+                                                <span class="desc text-muted font-12 text-truncate d-block">@claimsPrincipal.FindFirstValue(ClaimTypes.Role)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li class="list-group-item">
+                                        <div class="user-list-item">
+                                        <div class="user float-start me-3">
+                                            <i class="mdi mdi-circle text-muted"></i>
+                                        </div>
+                                        <div class="user-desc overflow-hidden">
+                                            <h5 class="name mt-0 mb-1">Email</h5>
+                                                <span class="desc text-muted font-12 text-truncate d-block">@claimsPrincipal.FindFirstValue(ClaimTypes.NameIdentifier)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                        <div class="user-list-item">
+                                        <div class="user float-start me-3">
+                                            <i class="mdi mdi-circle text-muted"></i>
+                                        </div>
+                                        <div class="user-desc overflow-hidden">
+                                            <h5 class="name mt-0 mb-1">Phone</h5>
+                                                @if (ViewBag.Type != "edit" && ViewBag.Type != "edit1")
+                                                {
+                                                    <span class="desc text-muted font-12 text-truncate d-block">@profile.Phone</span>
+                                                }
+                                                @if (ViewBag.Type == "edit" || ViewBag.Type == "edit1")
+                                                {
+                                                    <div class="row g-3 align-items-center">
+                                                        <div class="col-auto">
+                                                            <input type="tel" class="form-control" placeholder="Please Enter your Phone Number "
+                                                                   pattern="^\({0,1}((0|\+61)(2|9|3|7|8)){0,1}\){0,1}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{2}( |-){0,1}[0-9]{1}( |-){0,1}[0-9]{3}$"
+                                                                   title="Fill in the correct phone with the current format"
+                                                                   name="Phone" required>
+                                                        </div>
+                                                        <div class="col-auto"></div>
+                                                        <div class="col-auto"></div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                        <div class="user-list-item">
+                                        <div class="user float-start me-3">
+                                            <i class="mdi mdi-circle text-muted"></i>
+                                        </div>
+                                        <div class="user-desc overflow-hidden">
+                                            <h5 class="name mt-0 mb-1">Address</h5>
+                                                @if (ViewBag.Type != "edit" && ViewBag.Type != "edit1")
+                                                {
+                                                    <span class="desc text-muted font-12 text-truncate d-block">@address</span>
+                                                }
+
+                                                @if (ViewBag.Type == "edit" || ViewBag.Type == "edit1")
+                                                {
+                                                    <div class="row g-3 align-items-center">
+                                                        <div class="col-auto">
+                                                            <input type="text" class="form-control" placeholder="Please enter your current address" name="Address">
+                                                        </div>
+                                                        <div class="col-auto"></div>
+                                                        <div class="col-auto"></div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                        <div class="card-body">
+                        <div class="pt-1 float-end" style="margin-left:10px">
+                                @if (ViewBag.Type != "edit" && ViewBag.Type != "edit1" )
+                                {
+                                    <a asp-action="Edit" asp-controller="Profile" class="btn btn-primary btn-sm waves-effect waves-light">Edit</a>
+                                }
+                                @if (ViewBag.Type == "edit" || ViewBag.Type == "edit1")
+                                {
+                                    <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light"> Save Change </button>
+                                }
+
+
+                            </div>
+                            @if (ViewBag.Type != "edit" && ViewBag.Type != "edit1")
+                            {
+                                <div class="pt-1 float-end">
+                                    <a asp-action="ChangePassword" asp-controller="ChangePassword" class="btn btn-primary btn-sm waves-effect waves-light">Change Password</a>
+                        </div>
+                            }
+                        <ul class="nav nav-pills profile-pills mt-1">
+                        </ul>
+
+
+                </div>
+
+               
+            </div>
+
+            <div class="col-sm-4">
+
+
+            </div>
+        </div>
+        </form>
+    </div> <!-- container -->
+
+</div>
+<!-- content -->

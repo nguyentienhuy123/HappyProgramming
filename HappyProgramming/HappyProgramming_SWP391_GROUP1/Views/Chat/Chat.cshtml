@@ -1,0 +1,59 @@
+﻿@page
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var userName = HttpContextAccessor.HttpContext.Session.GetString("username");
+    var CourseName = HttpContextAccessor.HttpContext.Session.GetString("CourseName");
+    var courseId = HttpContextAccessor.HttpContext.Session.GetString("courseId");
+
+
+}
+
+<div class="container">
+    <div class="container">
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-2">Sender</div>
+            <div class="col-4"><input type="text" id="senderInput" value="@userName" readonly /></div>
+        </div>
+        <div class="row">
+            <div class="col-2">Receiver</div>
+            <div class="col-4"><input type="text" id="receiverInput" value="@CourseName" readonly /></div>
+        </div>
+        <div class="row" style="display:none">
+            <div class="col-2">Receiver</div>
+            <div class="col-4"><input type="text" id="receiverInput2" value="@courseId" readonly  /></div>
+        </div>
+        <div class="row">
+            <div class="col-2">Message</div>
+            <div class="col-4"><input type="text" id="messageInput" /></div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-6">
+                <input type="button" id="sendButton" value="Send Message" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <input hidden type="button" id="sendUser" value="Send user" />
+            </div>
+        </div>
+      @*  <div class="row">
+            <div class="col-6">
+                <input type="button" id="joinGroup" value="Join" />
+            </div>
+        </div>*@
+    </div>
+    <div class="row p-1">
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>

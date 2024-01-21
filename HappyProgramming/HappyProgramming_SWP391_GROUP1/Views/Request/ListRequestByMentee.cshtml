@@ -1,0 +1,43 @@
+﻿@using HappyProgramming_SWP391_GROUP1.Models.ViewModel
+
+@{
+    Layout = "_Layout1";
+}
+@{
+    List<RequestViewModel> ListCount = (List<RequestViewModel>)ViewBag.data;
+
+}
+<div class="row">
+    @foreach (var item in ListCount)
+    {
+        <div class="col-md-4 col-xs-6 border-primary mb-3">
+            <div class="card mb-3" style="max-width: 600px;">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <p class="card-text"><b>Course Name: </b>@item.CourseName </p>
+                          <p class="card-text"><b>Sender: </b>@item.Sender </p>
+                            <p class="card-text"><b>Receiver: </b>@item.Receiver </p>
+                            <p class="card-text"><b>Create Date: </b>@item.CreateDate </p
+                                <p class="card-text"><b>Status: </b>@item.Status </p>
+                        </div>
+                        <div class="col-md-12">
+                        <div class="card-footer ">
+                            <p class="card-text">
+                                <a id="myButton" class="btn btn-outline-primary float-right" href="@Url.Action("DeleteRequest", "Request", new {requestId = @item.Id })">
+                                    <i class="bi bi-eye-fill"></i> Cancel
+                                </a>
+                         
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>
+

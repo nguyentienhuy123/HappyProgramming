@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_Layout1";
+}
+@{
+    List<Post> ListPost = (List<Post>)ViewBag.data;
+
+}
+<div class="row">
+    @foreach (var post in ListPost)
+    {
+        <div class="col-md-4 col-xs-6 border-primary mb-3">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title">Title: @post.Title</h5>
+                            <p class="card-text">Content: @post.Content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

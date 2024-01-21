@@ -1,0 +1,279 @@
+﻿@using HappyProgramming_SWP391_GROUP1.Models;
+@using System.Security.Claims
+@{
+    Layout = "_Layout1";
+    ClaimsPrincipal claimsPrincipal = User;
+}
+@{
+    List<Course> ListCount = (List<Course>)ViewBag.listMyCourse;
+
+}
+<link href="img/favicon.ico" rel="icon">
+
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+<!-- Icon Font Stylesheet -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link href="~/CourseTemplate/lib/animate/animate.min.css" rel="stylesheet">
+<link href="~/CourseTemplate/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="~/CourseTemplate/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href="~/CourseTemplate/css/style.css" rel="stylesheet
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+            <h1 class="mb-5">Popular Courses</h1>
+        </div>
+        <div>
+            <div data-wow-delay="0.1s"
+                 style="display:flex;flex-wrap:wrap; ">
+
+
+                <form method="post" asp-action="SaveCourseId" asp-controller="Course">
+                @foreach (var item in ListCount)
+                {
+                        <div class="course-item bg-light" style="margin:15px;flex: 50 0 calc(100% / 4);max-width:381px">
+                            <div class="position-relative overflow-hidden">
+                                <img class="img-fluid" src="~/CourseTemplate/img/course-1.jpg" alt="">
+                                <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+
+                                    <a href="@Url.Action("MentorInfor", "Course", new {MentorId = @item.AccountId})" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
+                                   style="border-radius: 30px 0 0 30px;">View mentor</a>
+                                @*<a href="@Url.Action("CourseClassroom", "Course" , new {CourseId = @item.Id})" onclick="saveCourseId(@item.Name)" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Go to course</a>*@
+
+                                    <button type="submit" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
+                                        asp-action="SaveCourseId" asp-route-CourseName="@item.Name" asp-route-courseId="@item.Id" asp-controller="Course">
+                                        Go to course
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-center p-4 pb-0">
+                            @*   <h3 class="mb-0">$149.00</h3>
+                            <div class="mb-3">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small>(123)</small>
+                            </div>*@
+
+                                <h5 class="mb-4">@item.Name</h5>
+                                <p class="card-text"><b>Course Description: @item.Description</b></p>
+
+                                <p class="card-text"><b></b></p>
+                                <p class="card-text"><b></b></p>
+                            </div>
+                        </div>
+
+                }
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/CourseTemplate/lib/wow/wow.min.js"></script>
+<script src="~/CourseTemplate/lib/easing/easing.min.js"></script>
+<script src="~/CourseTemplate/lib/waypoints/waypoints.min.js"></script>
+<script src="~/CourseTemplate/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="~/CourseTemplate/js/main.js"></script>
+<style>
+
+    body {
+        font-family: "Inter", sans-serif;
+    }
+
+    .formbold-main-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px;
+    }
+
+    .formbold-form-wrapper {
+        margin: 0 auto;
+        max-width: 550px;
+        width: 100%;
+        background: white;
+    }
+
+    .formbold-steps {
+        padding-bottom: 18px;
+        margin-bottom: 35px;
+        border-bottom: 1px solid #DDE3EC;
+    }
+
+        .formbold-steps ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        .formbold-steps li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: #536387;
+        }
+
+            .formbold-steps li span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #DDE3EC;
+                border-radius: 50%;
+                width: 36px;
+                height: 36px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 24px;
+                color: #536387;
+            }
+
+            .formbold-steps li.active {
+                color: #07074D;
+                ;
+            }
+
+                .formbold-steps li.active span {
+                    background: #6A64F1;
+                    color: #FFFFFF;
+                }
+
+    .formbold-input-flex {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 22px;
+    }
+
+        .formbold-input-flex > div {
+            width: 50%;
+        }
+
+    .formbold-form-input {
+        width: 100%;
+        padding: 13px 22px;
+        border-radius: 5px;
+        border: 1px solid #DDE3EC;
+        background: #FFFFFF;
+        font-weight: 500;
+        font-size: 16px;
+        color: #536387;
+        outline: none;
+        resize: none;
+    }
+
+        .formbold-form-input:focus {
+            border-color: #6a64f1;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+        }
+
+    .formbold-form-label {
+        color: #07074D;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .formbold-form-confirm {
+        border-bottom: 1px solid #DDE3EC;
+        padding-bottom: 35px;
+    }
+
+        .formbold-form-confirm p {
+            font-size: 16px;
+            line-height: 24px;
+            color: #536387;
+            margin-bottom: 22px;
+            width: 75%;
+        }
+
+        .formbold-form-confirm > div {
+            display: flex;
+            gap: 15px;
+        }
+
+    .formbold-confirm-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #FFFFFF;
+        border: 0.5px solid #DDE3EC;
+        border-radius: 5px;
+        font-size: 16px;
+        line-height: 24px;
+        color: #536387;
+        cursor: pointer;
+        padding: 10px 20px;
+        transition: all .3s ease-in-out;
+    }
+
+    .formbold-confirm-btn {
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+    }
+
+        .formbold-confirm-btn.active {
+            background: #6A64F1;
+            color: #FFFFFF;
+        }
+
+    .formbold-form-step-1,
+    .formbold-form-step-2,
+    .formbold-form-step-3 {
+        display: none;
+    }
+
+        .formbold-form-step-1.active,
+        .formbold-form-step-2.active,
+        .formbold-form-step-3.active {
+            display: block;
+        }
+
+    .formbold-form-btn-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 25px;
+    }
+
+    .formbold-back-btn {
+        cursor: pointer;
+        background: #FFFFFF;
+        border: none;
+        color: #07074D;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        display: none;
+    }
+
+        .formbold-back-btn.active {
+            display: block;
+        }
+
+</style>

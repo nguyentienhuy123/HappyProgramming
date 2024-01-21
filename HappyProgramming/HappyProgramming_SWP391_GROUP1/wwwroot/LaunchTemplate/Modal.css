@@ -1,0 +1,48 @@
+﻿.modal.show {
+    background-color: black;
+    opacity: 90%;
+    display:block; 
+}
+
+
+.modal.show .modal-content {
+    animation: show_slide 1s ease forwards; 
+}
+
+.modal.hide .modal-content {
+    animation: hide_slide 1s ease forwards;
+}
+.modal.hide {
+    animation: hide_type 1s ease forwards;
+}
+@keyframes hide_type {
+    100%{
+        display: none; 
+    }
+}
+
+@keyframes hide_slide {
+    0% {
+        transform: translateY(100%);
+    }
+
+
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes show_slide {
+    0% {
+        transform: translateY(-100%);
+    }
+
+
+    100% {
+        transform: translateY(100px);
+        
+    }
+}
+
+

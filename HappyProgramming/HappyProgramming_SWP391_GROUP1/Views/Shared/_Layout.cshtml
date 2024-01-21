@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HappyProgramming_SWP391_GROUP1</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HappyProgramming_SWP391_GROUP1.styles.css" asp-append-version="true" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+               
+
+             
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HappyProgramming_SWP391_GROUP1</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-2">
+            @if (ViewBag.error != null)
+            {
+            <div class="alert hide">
+                <span class="fa fa-exclamation-circle "></span>
+                    <span class="msg"> @ViewBag.error </span>
+                <span class="close-btn">
+                    <span class="fa fa-times"></span>
+                </span>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $(".alert").removeClass('hide');
+                    $(".alert").addClass('show');
+                    $(".alert").addClass('alertshow');
+                    setTimeout(function(){
+                        $(".alert").removeClass('show');
+                        $(".alert").addClass('hide');
+                    }, 5000); 
+                });
+                $('.close-btn').click(function(){
+                    $(".alert").removeClass('show');
+                    $(".alert").addClass('hide');
+                })
+            </script>
+            }
+            @if (ViewBag.success != null)
+            {
+                <div class="alert2 hide">
+                    <span class="fa fa-exclamation-circle "></span>
+                    <span class="msg2"> @ViewBag.success </span>
+                    <span class="close-btn2">
+                        <span class="fa fa-times"></span>
+                    </span>
+                </div>
+                <script>
+                    $(document).ready(function () {
+                        $(".alert2").removeClass('hide2');
+                        $(".alert2").addClass('show2');
+                        $(".alert2").addClass('alertshow2');
+                        setTimeout(function () {
+                            $(".alert2").removeClass('show2');
+                            $(".alert2").addClass('hide2');
+                        }, 5000);
+                    });
+                    $('.close-btn2').click(function () {
+                        $(".alert2").removeClass('show2');
+                        $(".alert2").addClass('hide2');
+                    })
+                </script>
+            }
+            @RenderBody()
+        </main>
+    </div>
+
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

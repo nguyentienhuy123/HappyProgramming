@@ -1,0 +1,211 @@
+﻿@using System.Security.Claims
+@{
+    Layout = "_Layout1";
+    ClaimsPrincipal claimsPrincipal = User;
+}
+@*@{
+    List<Course> ListCount = (List<Course>)ViewBag.listAllCourse;
+
+}
+<div class="row">
+    @foreach (var item in ListCount)
+    {
+        <div class="col-md-4 col-xs-6 border-primary mb-3">
+            <div class="card mb-3" style="max-width: 600px;">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <p class="card-text"><b>Course Name:</b>@item.Name</p>
+
+                            <p class="card-text"><b>Course Description:</b></p>
+                            <p class="card-text"><b>Start Date: </b>@item.StartDate</p>
+                            <p class="card-text"><b>End Date: </b>@item.EndDate</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-footer ">
+                            <p class="card-text">
+                                <a id="myButton" class="btn btn-outline-primary float-right" href="@Url.Action("SendRequest", "Request", new { receiveId = @item.AccountId, courseId = @item.Id })">
+                                    <i class="bi bi-eye-fill"></i> Enroll me
+                                </a>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>
+*@
+@if (ViewBag.Message != null)
+{
+    <script>
+        var timeoutLength = 1000;
+        function showAlert() {
+            alert('@ViewBag.Message');
+        }
+        setTimeout(showAlert, timeoutLength);
+
+    </script>
+}
+@if (ViewBag.Enroll != null)
+{
+    <script>
+        var timeoutLength = 1000;
+        function showAlert() {
+            alert('@ViewBag.Enroll');
+        }
+        setTimeout(showAlert, timeoutLength);
+
+    </script>
+}
+@if (ViewBag.noti != null)
+{
+    <script>
+        var timeoutLength = 1000;
+        function showAlert() {
+            alert('@ViewBag.noti');
+        }
+        setTimeout(showAlert, timeoutLength);
+
+    </script>
+}
+
+
+
+
+@{
+    List<Course> ListCount = (List<Course>)ViewBag.listAllCourse;
+    List<Account> listMentor = (List<Account>)ViewBag.listMentor;
+}
+<link href="img/favicon.ico" rel="icon">
+
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+<!-- Icon Font Stylesheet -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link href="~/CourseTemplate/lib/animate/animate.min.css" rel="stylesheet">
+<link href="~/CourseTemplate/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="~/CourseTemplate/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href="~/CourseTemplate/css/style.css" rel="stylesheet
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+            <h1 class="mb-5">Popular Courses</h1>
+        </div>
+        <div>
+            <div data-wow-delay="0.1s"
+                 style="display:flex;flex-wrap:wrap; ">
+
+
+
+            @foreach (var item in ListCount)
+            {
+                    <div class="course-item bg-light" style="margin:15px;flex: 50 0 calc(100% / 4);max-width:381px ">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="~/CourseTemplate/img/course-1.jpg" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="@Url.Action("MentorInfor", "Course", new {MentorId = @item.AccountId})" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
+                               style="border-radius: 30px 0 0 30px;">View mentor</a>
+
+                            @if (User.IsInRole("Mentee"))
+                            {
+                                    <a href="@Url.Action("SendRequest", "Request", new { receiveId = @item.AccountId, courseId = @item.Id })"
+                               class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Send Request</a>
+
+                            }
+                            </div>
+                        </div>
+
+                        <div class="text-center p-4 pb-0">
+
+
+                            <h5 class="mb-4">@item.Name</h5>
+                            <p class="card-text"><b>Course Description: @item.Description</b></p>
+
+                        @if (User.IsInRole("Admin"))
+                        {
+
+                                <a href="@Url.Action("DeleteCourse","Course",new{courseId = @item.Id})" class="btn btn-primary">Delete Course</a>
+
+                                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Update Mentor
+                                </a>
+
+                                <!--Modal-->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Update Mentor</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" action="@Url.Action("UpdateMentor","Course")">
+                                                    <input type="hidden" name="courseId" value="@item.Id" />
+                                                    <select class="my-select" name="mentorId">
+                                                        <option>Choose Email </option>
+                                                    @foreach (var acc in listMentor)
+                                                    {
+                                                            <option value="@acc.Id">@acc.Email</option>
+                                                    }
+                                                    </select>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" value="Save changes" class="btn btn-primary" >Save change</button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Modal-->
+                        }
+                            <p class="card-text"><b></b></p>
+                            <p class="card-text"><b></b></p>
+                        </div>
+                    </div>
+
+
+
+
+            }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/CourseTemplate/lib/wow/wow.min.js"></script>
+<script src="~/CourseTemplate/lib/easing/easing.min.js"></script>
+<script src="~/CourseTemplate/lib/waypoints/waypoints.min.js"></script>
+<script src="~/CourseTemplate/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="~/CourseTemplate/js/main.js"></script>
+<script>
+    $("#openModal").click(function() {
+        $("#myModal").modal("show");
+    });
+</script>

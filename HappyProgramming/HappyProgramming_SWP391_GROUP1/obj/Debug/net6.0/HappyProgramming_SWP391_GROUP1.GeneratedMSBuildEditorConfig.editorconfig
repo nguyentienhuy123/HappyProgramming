@@ -1,0 +1,140 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HappyProgramming_SWP391_GROUP1
+build_property.RootNamespace = HappyProgramming_SWP391_GROUP1
+build_property.ProjectDir = D:\FU_Learning\Summer_2023\SWP391\swp391-group3-happyprogramming\HappyProgramming_SWP391_GROUP1\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\FU_Learning\Summer_2023\SWP391\swp391-group3-happyprogramming\HappyProgramming_SWP391_GROUP1
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/ChangePassword/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbmdlUGFzc3dvcmRcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Chat/Chat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxDaGF0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Course/Course.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXENvdXJzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Course/CourseClassroom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXENvdXJzZUNsYXNzcm9vbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Course/CreateCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXENyZWF0ZUNvdXJzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Course/MentorInfor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXE1lbnRvckluZm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Course/MyCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXE15Q291cnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Launch/Launch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF1bmNoXExhdW5jaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Login/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9nb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Login/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVzZXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Post/CreatePost.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxDcmVhdGVQb3N0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Post/ListPostByMe.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxMaXN0UG9zdEJ5TWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Post/Post.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxQb3N0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Post/ViewEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxWaWV3RWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Profile/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Request/ListRequestByMentee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxMaXN0UmVxdWVzdEJ5TWVudGVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Request/ListRequestMentor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxMaXN0UmVxdWVzdE1lbnRvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Request/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/ResetPassword/Confirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXRQYXNzd29yZFxDb25maXJtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Shared/_Layout1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/SignUp/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnblVwXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/SignUp/Verify.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnblVwXFZlcmlmeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FU_Learning/Summer_2023/SWP391/swp391-group3-happyprogramming/HappyProgramming_SWP391_GROUP1/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-jl2yswwjea

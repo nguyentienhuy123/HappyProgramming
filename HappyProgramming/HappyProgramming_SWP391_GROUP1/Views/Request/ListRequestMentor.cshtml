@@ -1,0 +1,43 @@
+﻿@using HappyProgramming_SWP391_GROUP1.Models.ViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout1";
+}
+@{
+    List<RequestViewModel> ListCount = (List<RequestViewModel>)ViewBag.listRequestMentor;
+
+}
+<div class="row" style="display:flex; flex-wrap:wrap">
+@foreach (var item in ListCount)
+    { if(item.Status == "Pending")
+        {
+             <div class="col-md-4 col-xs-6 border-primary mb-3" style="flex: 50 0 calc(100% / 3); max-width: 400px;">
+            <div class="card mb-3" style="">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <p class="card-text"><b>Course Name: </b>@item.CourseName </p>
+                          <p class="card-text"><b>Sender: </b>@item.Sender </p>
+                            <p class="card-text"><b>Receiver: </b>@item.Receiver </p>
+                            <p class="card-text"><b>Create Date: </b>@item.CreateDate </p
+                                <p class="card-text"><b>Status: </b>@item.Status </p>
+                            @if(@item.Status == "Pending")
+                            {
+                                  <a href="@Url.Action("ProcessResponse", "Request",new{requestId = @item.Id, button = "approve" })"  style="margin:5px">Approve</a>
+                                  <a href="@Url.Action("ProcessResponse", "Request",new{requestId = @item.Id, button = "reject" })" style="margin:1px">Reject</a> 
+                            }
+                         
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+        }
+       
+      
+    
+}
+</div>
